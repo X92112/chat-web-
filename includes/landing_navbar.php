@@ -1,141 +1,120 @@
 <?php
 /**
  * ============================================================================
- * NEXLY — REUSABLE TOP MARQUEE & STICKY NAVBAR PARTIAL
- * Sections 1 & 2 of the Annnimate-style Page Structure
+ * NEXLY X — MIGUEL RECIO ARCHITECTURAL TOP MARQUEE & STICKY NAVBAR
+ * Clean Swiss architectural design system: #edeef1 paper, #161618 ink, #ff3a3a
  * ============================================================================
  */
 ?>
-<!-- ==========================================================================
-     1. SLIM TOP BANNER / INFINITE MARQUEE ANNOUNCEMENT
-     ========================================================================== -->
-<div class="an-top-marquee" role="region" aria-label="Latest platform announcements">
-  <div class="an-marquee-track" id="top-marquee-track">
+<!-- Dynamic Scroll Progress Indicator -->
+<div class="mr-scroll-progress" id="scroll-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+<!-- Top Architectural Hairline Marquee -->
+<div class="mr-top-marquee" role="region" aria-label="Platform announcement">
+  <div class="mr-marquee-track">
     <?php for ($loop = 0; $loop < 2; $loop++): ?>
-      <div class="an-marquee-group" <?= $loop === 1 ? 'aria-hidden="true"' : '' ?>>
-        <?php foreach ($site_config['marquee_items'] as $item): ?>
-          <span class="an-marquee-item">
-            <span class="an-marquee-dot" aria-hidden="true"></span>
-            <span><?= e($item) ?></span>
-          </span>
-        <?php endforeach; ?>
+      <div class="mr-marquee-group" <?= $loop === 1 ? 'aria-hidden="true"' : '' ?>>
+        <span class="mr-marquee-item">NEXLY X</span>
+        <span class="mr-marquee-sep">✱</span>
+        <span class="mr-marquee-item">ZERO-LATENCY STUDIO CHAT</span>
+        <span class="mr-marquee-sep">✱</span>
+        <span class="mr-marquee-item">48KHZ LOSSLESS VOICE NOTES</span>
+        <span class="mr-marquee-sep">✱</span>
+        <span class="mr-marquee-item">SUB-20MS SSE STREAM</span>
+        <span class="mr-marquee-sep">✱</span>
+        <span class="mr-marquee-item">BILINGUAL KHMER &amp; ENGLISH</span>
+        <span class="mr-marquee-sep">✱</span>
+        <span class="mr-marquee-item">PUBLIC LOBBY &amp; DIRECT THREADS</span>
+        <span class="mr-marquee-sep">✱</span>
+        <span class="mr-marquee-item">AVAILABLE WORLDWIDE</span>
+        <span class="mr-marquee-sep">✱</span>
       </div>
     <?php endfor; ?>
   </div>
 </div>
 
-<!-- Dynamic Scroll Progress Indicator (Native Scroll-Driven + JS Fallback) -->
-<div class="an-scroll-progress" id="scroll-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-
-<!-- ==========================================================================
-     2. STICKY MINIMAL NAVBAR (Logo left · Links center · Login + Mint CTA right)
-     ========================================================================== -->
-<header class="an-navbar-wrap" id="site-navbar">
-  <div class="an-navbar-inner">
-    <!-- Left: Brand Logo -->
-    <a href="<?= BASE_URL ?>/index.php" class="an-logo" aria-current="page">
-      <span class="an-logo-mark" aria-hidden="true">
-        <span class="an-logo-core"></span>
+<!-- Sticky Minimal Architectural Navbar -->
+<header class="mr-navbar" id="site-navbar">
+  <div class="mr-navbar-inner mr-wrap">
+    <!-- Brand / Logo -->
+    <a href="<?= BASE_URL ?>/index.php" class="mr-brand" aria-label="Nexly X Home">
+      <span class="mr-brand-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="6" fill="#161618"/>
+          <path d="M7 21V7L14 14V21H7Z" fill="#edeef1"/>
+          <path d="M14 7L21 14V21H14V7Z" fill="#ff3a3a"/>
+        </svg>
       </span>
-      <span class="an-logo-text"><?= e($site_config['name']) ?></span>
-      <span class="an-logo-tag">2.4</span>
+      <span class="mr-brand-name">NEXLY X</span>
+      <span class="mr-brand-tag mr-mono">v2.4</span>
     </a>
 
-    <!-- Center: Primary Navigation Links -->
-    <nav class="an-nav-center" aria-label="Primary">
-      <ul class="an-nav-list">
-        <li><a href="#interactive-demo" class="an-nav-link">Explore</a></li>
-        <li><a href="#benefits" class="an-nav-link">Features</a></li>
-        <li><a href="#latest-shipped" class="an-nav-link">Shipped</a></li>
-        <li><a href="#pricing" class="an-nav-link">Pricing</a></li>
-        <li><a href="#faq" class="an-nav-link">Docs &amp; FAQ</a></li>
-        <li>
-          <a href="<?= BASE_URL ?>/chat.php" class="an-nav-link an-nav-live">
-            <span class="an-live-dot" aria-hidden="true"></span>
-            Live Chat
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <!-- Center Status Pill -->
+    <div class="mr-nav-status mr-mono">
+      <span class="mr-status-dot"></span>
+      <span>12 ONLINE · SUB-20MS SSE</span>
+    </div>
 
-    <!-- Right: Login Link + Mint "Get started" Button + Mobile Trigger -->
-    <div class="an-nav-right">
+    <!-- Right Navigation & Action -->
+    <div class="mr-nav-right">
+      <nav class="mr-nav-links mr-mono" aria-label="Primary navigation">
+        <a href="#capabilities" class="mr-nav-link">[ 01 ] FEATURES</a>
+        <a href="#interactive-demo" class="mr-nav-link">[ 02 ] PLAYGROUND</a>
+        <a href="#showcase" class="mr-nav-link">[ 03 ] SHOWCASE</a>
+        <a href="#pricing" class="mr-nav-link">[ 04 ] PRICING</a>
+        <a href="#faq" class="mr-nav-link">[ 05 ] FAQ</a>
+      </nav>
+
       <?php if (!empty($current_user)): ?>
-        <a href="<?= BASE_URL ?>/profile.php?u=<?= urlencode($current_user['username']) ?>" class="an-login-link">
+        <a href="<?= BASE_URL ?>/profile.php?u=<?= urlencode($current_user['username']) ?>" class="mr-user-pill mr-mono">
           @<?= e($current_user['username']) ?>
         </a>
-        <a href="<?= BASE_URL ?>/chat.php" class="an-btn an-btn-mint an-magnetic">
-          <span class="an-btn-slot">
-            <span class="an-btn-label">Open Studio</span>
-            <span class="an-btn-label" aria-hidden="true">Open Studio ↗</span>
-          </span>
+        <a href="<?= BASE_URL ?>/chat.php" class="mr-btn-action mr-mono">
+          <span>ENTER STUDIO ↗</span>
         </a>
       <?php else: ?>
-        <a href="<?= BASE_URL ?>/login.php" class="an-login-link">Login</a>
-        <a href="<?= BASE_URL ?>/register.php" class="an-btn an-btn-mint an-magnetic">
-          <span class="an-btn-slot">
-            <span class="an-btn-label">Get started</span>
-            <span class="an-btn-label" aria-hidden="true">Get started ↗</span>
-          </span>
+        <a href="<?= BASE_URL ?>/login.php" class="mr-login-btn mr-mono">LOGIN</a>
+        <a href="<?= BASE_URL ?>/chat.php" class="mr-btn-action mr-mono">
+          <span>LIVE CHAT ↗</span>
         </a>
       <?php endif; ?>
 
-      <!-- Mobile Menu Trigger Button -->
-      <button
-        type="button"
-        class="an-mobile-trigger"
-        id="mobile-drawer-open"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="mobile-nav-drawer"
-      >
-        <span class="an-hamburger-line"></span>
-        <span class="an-hamburger-line"></span>
+      <!-- Mobile Menu Trigger -->
+      <button type="button" class="mr-mobile-trigger" id="mobile-drawer-open" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
       </button>
     </div>
   </div>
 </header>
 
-<!-- ==========================================================================
-     ACCESSIBLE MOBILE NAVIGATION DRAWER (<dialog> modal top-layer)
-     ========================================================================== -->
-<dialog class="an-mobile-drawer" id="mobile-nav-drawer" aria-label="Mobile navigation menu">
-  <div class="an-drawer-sheet" id="mobile-drawer-sheet">
-    <div class="an-drawer-header">
-      <a href="<?= BASE_URL ?>/index.php" class="an-logo">
-        <span class="an-logo-mark" aria-hidden="true"><span class="an-logo-core"></span></span>
-        <span class="an-logo-text"><?= e($site_config['name']) ?></span>
-      </a>
-      <button type="button" class="an-drawer-close" id="mobile-drawer-close" aria-label="Close menu" autofocus>
-        ✕
+<!-- Mobile Drawer -->
+<dialog class="mr-mobile-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+  <div class="mr-drawer-sheet" id="mobile-drawer-sheet">
+    <div class="mr-drawer-top">
+      <div class="mr-brand">
+        <span class="mr-brand-name">NEXLY X</span>
+        <span class="mr-brand-tag mr-mono">v2.4</span>
+      </div>
+      <button type="button" class="mr-drawer-close mr-mono" id="mobile-drawer-close" aria-label="Close menu">
+        [ CLOSE × ]
       </button>
     </div>
 
-    <nav class="an-drawer-nav" aria-label="Mobile">
-      <ul class="an-drawer-list">
-        <li><a href="#interactive-demo" class="an-drawer-link">Explore Interactive Demo</a></li>
-        <li><a href="#benefits" class="an-drawer-link">Features &amp; Benefits</a></li>
-        <li><a href="#latest-shipped" class="an-drawer-link">Just Shipped</a></li>
-        <li><a href="#showcase" class="an-drawer-link">Studio Showcase</a></li>
-        <li><a href="#pricing" class="an-drawer-link">Pricing Plans</a></li>
-        <li><a href="#faq" class="an-drawer-link">Docs &amp; FAQ</a></li>
-        <li><a href="<?= BASE_URL ?>/chat.php" class="an-drawer-link an-drawer-highlight">Open Live Chat Lobby ↗</a></li>
-      </ul>
+    <nav class="mr-drawer-links mr-mono">
+      <a href="#capabilities" class="mr-drawer-link">[ 01 ] ARCHITECTURE &amp; FEATURES</a>
+      <a href="#interactive-demo" class="mr-drawer-link">[ 02 ] LIVE STUDIO PLAYGROUND</a>
+      <a href="#latest-shipped" class="mr-drawer-link">[ 03 ] CHANGELOG &amp; RELEASES</a>
+      <a href="#showcase" class="mr-drawer-link">[ 04 ] INTERFACE TOUR</a>
+      <a href="#pricing" class="mr-drawer-link">[ 05 ] STUDIO PLANS &amp; PRICING</a>
+      <a href="#faq" class="mr-drawer-link">[ 06 ] DOCUMENTATION &amp; FAQ</a>
+      <a href="<?= BASE_URL ?>/chat.php" class="mr-drawer-link mr-drawer-highlight">➔ OPEN LIVE STUDIO LOBBY</a>
     </nav>
 
-    <div class="an-drawer-footer">
-      <?php if (!empty($current_user)): ?>
-        <a href="<?= BASE_URL ?>/chat.php" class="an-btn an-btn-mint" style="width:100%; justify-content:center;">
-          Open Live Chat (@<?= e($current_user['username']) ?>)
-        </a>
-      <?php else: ?>
-        <a href="<?= BASE_URL ?>/login.php" class="an-btn an-btn-outline" style="width:100%; justify-content:center;">
-          Login to account
-        </a>
-        <a href="<?= BASE_URL ?>/register.php" class="an-btn an-btn-mint" style="width:100%; justify-content:center;">
-          Get started free
-        </a>
-      <?php endif; ?>
+    <div class="mr-drawer-bottom">
+      <a href="<?= BASE_URL ?>/chat.php" class="mr-btn-action mr-mono" style="width:100%; text-align:center;">
+        <span>ENTER LIVE CHAT STUDIO ↗</span>
+      </a>
     </div>
   </div>
 </dialog>

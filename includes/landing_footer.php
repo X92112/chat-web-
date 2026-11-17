@@ -1,169 +1,140 @@
 <?php
 /**
  * ============================================================================
- * NEXLY — REUSABLE NEWSLETTER, 4-COLUMN FOOTER & FLOATING PILL PARTIAL
- * Sections 12 & 13 of the Annnimate-style Page Structure
+ * NEXLY X — MIGUEL RECIO ARCHITECTURAL SWISS FOOTER
+ * Hairline 1px borders, #edeef1 paper background, JetBrains Mono metadata
  * ============================================================================
  */
 ?>
-<!-- ==========================================================================
-     12. NEWSLETTER SIGNUP FIELD + 4-COLUMN FOOTER + SOCIAL ICONS + COPYRIGHT
-     ========================================================================== -->
-<footer class="an-footer" aria-labelledby="footer-heading">
-  <h2 id="footer-heading" class="visually-hidden"><?= e($site_config['name']) ?> Footer and Newsletter</h2>
+<!-- Architectural Swiss Footer -->
+<footer class="mr-footer" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="visually-hidden"><?= e($site_config['name']) ?> System Specifications and Colophon</h2>
 
-  <div class="an-container">
-    <!-- Newsletter Signup Card -->
-    <div class="an-newsletter-card an-reveal">
-      <div class="an-newsletter-copy">
-        <span class="an-eyebrow">RELEASE NOTES &amp; CHANGELOG</span>
-        <h3 class="an-newsletter-title">Stay in the loop when new motion drops.</h3>
-        <p class="an-newsletter-sub">One concise dispatch every month covering voice engine upgrades, Khmer typography refinements, and studio templates.</p>
+  <div class="mr-wrap">
+    <!-- Newsletter / Dispatch Banner -->
+    <div class="mr-footer-newsletter">
+      <div class="mr-fn-left">
+        <div class="mr-tag mr-mono">
+          <span class="mr-sq"></span>
+          <span>DISPATCH &amp; RELEASES</span>
+        </div>
+        <h3 class="mr-display mr-fn-title">STAY IN SYNC WITH THE STUDIO.</h3>
+        <p class="mr-fn-desc">
+          One concise monthly release log covering voice engine upgrades, Khmer typography refinements, and WebRTC performance benchmarks.
+        </p>
       </div>
 
-      <form class="an-newsletter-form" id="newsletter-form" action="#newsletter-form" method="POST" aria-labelledby="newsletter-label">
-        <div class="an-field-group">
-          <label for="newsletter-email" id="newsletter-label" class="an-field-label">
-            Work or student email <span aria-hidden="true">*</span>
-          </label>
-          <div class="an-newsletter-input-row">
-            <input
-              type="email"
-              id="newsletter-email"
-              name="email"
-              class="an-input"
-              placeholder="you@studio.kh"
-              autocomplete="email"
-              autocorrect="off"
-              autocapitalize="none"
-              spellcheck="false"
-              enterkeyhint="send"
-              aria-describedby="newsletter-hint"
-              required
-            >
-            <button type="submit" class="an-btn an-btn-mint an-magnetic">
-              <span class="an-btn-slot">
-                <span class="an-btn-label">Subscribe</span>
-                <span class="an-btn-label" aria-hidden="true">Subscribe ↗</span>
-              </span>
-            </button>
-          </div>
-          <span id="newsletter-hint" class="an-field-hint">No spam. Unsubscribe in one click anytime.</span>
-          <div id="newsletter-status" class="an-newsletter-status" role="status" aria-live="polite"></div>
+      <form class="mr-fn-form" id="newsletter-form" action="#newsletter-form" method="POST">
+        <div class="mr-fn-input-group">
+          <input
+            type="email"
+            id="newsletter-email"
+            name="email"
+            class="mr-input mr-mono"
+            placeholder="engineer@studio.kh"
+            autocomplete="email"
+            spellcheck="false"
+            required
+          >
+          <button type="submit" class="mr-pill mr-pill-primary">
+            <span>SUBSCRIBE ↗</span>
+          </button>
         </div>
+        <div class="mr-fn-note mr-mono">ZERO SPAM. ONE-CLICK UNSUBSCRIBE ANYTIME.</div>
+        <div id="newsletter-status" class="mr-fn-status mr-mono" role="status" aria-live="polite"></div>
       </form>
     </div>
 
-    <!-- 4-Column Footer Links Grid -->
-    <div class="an-footer-grid">
-      <!-- Brand Column -->
-      <div class="an-footer-brand-col">
-        <a href="<?= BASE_URL ?>/index.php" class="an-logo">
-          <span class="an-logo-mark" aria-hidden="true"><span class="an-logo-core"></span></span>
-          <span class="an-logo-text"><?= e($site_config['name']) ?></span>
+    <!-- 4-Column Architectural Links Grid -->
+    <div class="mr-footer-grid">
+      <!-- Col 0: Brand & Location -->
+      <div class="mr-fcol mr-fcol-brand">
+        <a href="<?= BASE_URL ?>/index.php" class="mr-brand" aria-label="Nexly X Home">
+          <span class="mr-brand-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" rx="6" fill="#161618"/>
+              <path d="M7 21V7L14 14V21H7Z" fill="#edeef1"/>
+              <path d="M14 7L21 14V21H14V7Z" fill="#ff3a3a"/>
+            </svg>
+          </span>
+          <span class="mr-brand-name">NEXLY X</span>
+          <span class="mr-brand-tag mr-mono">v2.4</span>
         </a>
-        <p class="an-footer-tagline">
-          Motion-driven real-time voice, snap, and text chat studio crafted for creators, students, and fast-moving teams.
+        <p class="mr-fbrand-text">
+          Precision real-time voice, snap, and text chat studio. Built with raw performance, bilingual Khmer + Latin typography, and architectural clarity.
         </p>
-        <!-- Social Icons -->
-        <div class="an-social-row" aria-label="Social media links">
-          <a href="<?= BASE_URL ?>/chat.php" class="an-social-btn" aria-label="Nexly Global Lobby">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          </a>
-          <a href="https://github.com" target="_blank" rel="noopener" class="an-social-btn" aria-label="GitHub">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          </a>
-          <a href="https://x.com" target="_blank" rel="noopener" class="an-social-btn" aria-label="X (Twitter)">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
-          </a>
-          <a href="https://discord.com" target="_blank" rel="noopener" class="an-social-btn" aria-label="Community">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M7.5 7.5c3.5-1 5.5-1 9 0"/><path d="M7 16.5c3.5 1 6.5 1 10 0"/><path d="M15.5 17c0 1 1.5 3 2 3 1.5 0 2.833-1.667 3.5-3 .667-1.667.5-5.833-1.5-11.5-1.457-1.015-3-1.34-4.5-1.5l-1 2.5"/><path d="M8.5 17c0 1-1.356 3-1.832 3-1.429 0-2.698-1.667-3.333-3-.635-1.667-.476-5.833 1.428-11.5C6.151 4.485 7.5 4.16 9 4l1 2.5"/></svg>
-          </a>
+        <div class="mr-fmeta mr-mono">
+          <div>LAT: 11.5564° N · LON: 104.9282° E</div>
+          <div>PHNOM PENH · KINGDOM OF CAMBODIA</div>
         </div>
       </div>
 
-      <!-- Column 1: Product -->
-      <div class="an-footer-col">
-        <h4 class="an-footer-col-title">Product</h4>
-        <ul class="an-footer-links">
-          <li><a href="<?= BASE_URL ?>/chat.php">Global Chat Lobby</a></li>
-          <li><a href="#interactive-demo">Interactive Customizer</a></li>
-          <li><a href="#benefits">48kHz Voice Engine</a></li>
-          <li><a href="#pricing">Pricing &amp; Plans</a></li>
+      <!-- Col 1: Product -->
+      <div class="mr-fcol">
+        <h4 class="mr-fcol-title mr-mono">[ 01 ] PRODUCT</h4>
+        <ul class="mr-flinks">
+          <li><a href="<?= BASE_URL ?>/chat.php">Live Chat Studio</a></li>
+          <li><a href="#interactive-demo">Real-Time Playground</a></li>
+          <li><a href="#capabilities">48kHz Voice Engine</a></li>
+          <li><a href="#pricing">Studio Tier Pricing</a></li>
         </ul>
       </div>
 
-      <!-- Column 2: Features -->
-      <div class="an-footer-col">
-        <h4 class="an-footer-col-title">Shipped</h4>
-        <ul class="an-footer-links">
-          <li><a href="#latest-shipped">Live Voice Notes 2.0</a></li>
-          <li><a href="#latest-shipped">Instant HD Snaps</a></li>
-          <li><a href="#latest-shipped">Khmer + Latin Type</a></li>
-          <li><a href="#showcase">Interface Showcase</a></li>
+      <!-- Col 2: Changelog -->
+      <div class="mr-fcol">
+        <h4 class="mr-fcol-title mr-mono">[ 02 ] CHANGELOG</h4>
+        <ul class="mr-flinks">
+          <li><a href="#latest-shipped">v2.4 — Voice Notes 2.0</a></li>
+          <li><a href="#latest-shipped">v2.3 — Sub-20ms SSE Stream</a></li>
+          <li><a href="#latest-shipped">v2.2 — Khmer Type Engine</a></li>
+          <li><a href="#showcase">Interface Viewports</a></li>
         </ul>
       </div>
 
-      <!-- Column 3: Account -->
-      <div class="an-footer-col">
-        <h4 class="an-footer-col-title">Studio</h4>
-        <ul class="an-footer-links">
+      <!-- Col 3: Navigation -->
+      <div class="mr-fcol">
+        <h4 class="mr-fcol-title mr-mono">[ 03 ] NAVIGATION</h4>
+        <ul class="mr-flinks">
           <?php if (!empty($current_user)): ?>
-            <li><a href="<?= BASE_URL ?>/chat.php">Open Chat Studio</a></li>
-            <li><a href="<?= BASE_URL ?>/profile.php?u=<?= urlencode($current_user['username']) ?>">My Profile</a></li>
-            <li><a href="<?= BASE_URL ?>/settings.php">Settings</a></li>
+            <li><a href="<?= BASE_URL ?>/chat.php">Open My Chats</a></li>
+            <li><a href="<?= BASE_URL ?>/profile.php?u=<?= urlencode($current_user['username']) ?>">Profile (@<?= e($current_user['username']) ?>)</a></li>
+            <li><a href="<?= BASE_URL ?>/settings.php">Account Settings</a></li>
           <?php else: ?>
             <li><a href="<?= BASE_URL ?>/login.php">Sign In</a></li>
-            <li><a href="<?= BASE_URL ?>/register.php">Create Account</a></li>
+            <li><a href="<?= BASE_URL ?>/register.php">Create Free Account</a></li>
             <li><a href="<?= BASE_URL ?>/chat.php">Guest Preview</a></li>
           <?php endif; ?>
-          <li><a href="#faq">Documentation &amp; FAQ</a></li>
+          <li><a href="#faq">Questions &amp; Specs</a></li>
         </ul>
       </div>
 
-      <!-- Column 4: Resources -->
-      <div class="an-footer-col">
-        <h4 class="an-footer-col-title">Stack &amp; Specs</h4>
-        <ul class="an-footer-links">
-          <li><a href="#faq">PHP + MySQL + SSE</a></li>
-          <li><a href="#faq">GSAP + Lenis Motion</a></li>
-          <li><a href="#faq">WCAG Contrast Ready</a></li>
-          <li><a href="#faq">Reduced-Motion Safe</a></li>
+      <!-- Col 4: System Specs -->
+      <div class="mr-fcol">
+        <h4 class="mr-fcol-title mr-mono">[ 04 ] SYSTEM SPECS</h4>
+        <ul class="mr-flinks mr-mono" style="font-size:12px; color:var(--paper-mut);">
+          <li>STACK // PHP 8.2 + MYSQL</li>
+          <li>ENGINE // SERVER-SENT EVENTS</li>
+          <li>VOICE // 48KHZ OPUS LOSSLESS</li>
+          <li>GRID // SWISS ARCHITECTURAL</li>
         </ul>
       </div>
     </div>
 
-    <!-- Bottom Copyright Row -->
-    <div class="an-footer-bottom">
-      <p>&copy; <?= date('Y') ?> <?= e($site_config['name']) ?> Studio. Crafted with human precision in Phnom Penh · សួស្តី.</p>
-      <div class="an-footer-meta">
-        <span>Accent: <code>#b3fca0</code></span>
+    <!-- Colophon / Copyright Bottom Bar -->
+    <div class="mr-footer-bottom mr-mono">
+      <div class="mr-fb-left">
+        <span>&copy; <?= date('Y') ?> NEXLY X STUDIO. ALL RIGHTS RESERVED.</span>
         <span>·</span>
-        <span>Surface: <code>#141314</code></span>
+        <span>DESIGNED WITH PRECISION</span>
+      </div>
+      <div class="mr-fb-right">
+        <span>PALETTE: <span style="color:var(--infra); font-weight:700;">#FF3A3A</span> / #161618 / #EDEEF1</span>
+        <span>·</span>
+        <a href="#site-navbar" class="mr-back-to-top">[ BACK TO TOP ↑ ]</a>
       </div>
     </div>
   </div>
 </footer>
-
-<!-- ==========================================================================
-     13. FLOATING BOTTOM PILL ("Just shipped: [feature] · yesterday")
-     Slides in after a short delay; includes link + accessible dismiss button.
-     ========================================================================== -->
-<aside class="an-floating-pill" id="floating-shipped-pill" aria-label="Latest release notification" hidden>
-  <span class="an-pill-pulse" aria-hidden="true"></span>
-  <a href="<?= e($site_config['floating_pill']['url']) ?>" class="an-pill-link">
-    <?= e($site_config['floating_pill']['label']) ?>
-    <span class="an-pill-arrow" aria-hidden="true">↗</span>
-  </a>
-  <button type="button" class="an-pill-close" id="floating-pill-close" aria-label="Dismiss announcement">
-    ✕
-  </button>
-</aside>
-
-<!-- Cursor-follow label for Section 6 ("Just shipped / Latest" cards) -->
-<div class="an-cursor-pill" id="cursor-follow-pill" aria-hidden="true">
-  <span>Open Live ↗</span>
-</div>
 
 <?php if (function_exists('is_logged_in') && is_logged_in()): ?>
   <!-- Native Smartphone Calling Modals & WebRTC Engine -->
