@@ -397,13 +397,16 @@
       const durStr = duration > 0 ? formatDuration(duration) : '0:00';
       html += `
         <div class="chat-voice-player" onclick="handleVoicePlayerClick(event, this)">
-          <button type="button" class="voice-play-btn" title="Play voice note">
+          <button type="button" class="voice-play-btn" title="Play voice note" aria-label="Play voice note">
             <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
             <svg class="icon-pause" style="display:none;" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
           </button>
           <div class="voice-track-info">
+            <div class="voice-wave-bars" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
             <div class="voice-progress-track"><div class="voice-progress-fill" style="width:0%;"></div></div>
-            <div class="voice-time-display"><span class="voice-elapsed">0:00</span> / <span class="voice-total">${durStr}</span></div>
+            <div class="voice-time-display"><span class="voice-elapsed">0:00</span> / <span class="voice-total">${durStr}</span> <span class="voice-codec-tag">48kHz</span></div>
           </div>
           <audio preload="metadata" src="${audioSrc}" style="display:none;"></audio>
         </div>
@@ -549,6 +552,8 @@
 
     if (currentlyPlayingAudio && currentlyPlayingAudio !== audio) {
       currentlyPlayingAudio.pause();
+      const prevPlayer = currentlyPlayingAudio.closest ? currentlyPlayingAudio.closest('.chat-voice-player') : null;
+      if (prevPlayer) prevPlayer.classList.remove('is-playing');
       if (currentlyPlayingBtn) {
         const p1 = currentlyPlayingBtn.querySelector('.icon-play');
         const p2 = currentlyPlayingBtn.querySelector('.icon-pause');
@@ -561,11 +566,13 @@
       audio.play().then(() => {
         if (playIcon) playIcon.style.display = 'none';
         if (pauseIcon) pauseIcon.style.display = 'block';
+        playerEl.classList.add('is-playing');
         currentlyPlayingAudio = audio;
         currentlyPlayingBtn = btn;
       }).catch(err => console.warn(err));
     } else {
       audio.pause();
+      playerEl.classList.remove('is-playing');
       if (playIcon) playIcon.style.display = 'block';
       if (pauseIcon) pauseIcon.style.display = 'none';
     }
@@ -583,6 +590,7 @@
       if (pauseIcon) pauseIcon.style.display = 'none';
       if (progressFill) progressFill.style.width = '0%';
       if (elapsedEl) elapsedEl.textContent = '0:00';
+      playerEl.classList.remove('is-playing');
       currentlyPlayingAudio = null;
       currentlyPlayingBtn = null;
     };

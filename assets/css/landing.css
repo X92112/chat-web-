@@ -1949,3 +1949,87 @@ dialog.mr-mobile-drawer[open] {
     align-items: flex-start;
   }
 }
+
+/* ============================================================================
+   ARCHITECTURAL REVERSE TICKER MARQUEE
+   ============================================================================ */
+.mr-marquee-strip {
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+.mr-marquee-reverse-strip {
+  background: var(--ink-bg);
+  color: var(--ink-fg);
+  border-top: 1px solid var(--paper-ln);
+  border-bottom: 1px solid var(--paper-ln);
+  padding: 14px 0;
+  display: flex;
+}
+
+.mr-marquee-reverse {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: mrMarqueeReverse 30s linear infinite;
+  width: max-content;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.mr-marquee-reverse-strip:hover .mr-marquee-reverse {
+  animation-play-state: paused;
+}
+
+@keyframes mrMarqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+/* ============================================================================
+   SCROLL REVEAL HARDWARE-ACCELERATED TRANSITIONS
+   ============================================================================ */
+.mr-reveal-init {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.mr-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Card hover tactile feedback */
+.mr-card, .mr-pricing-card {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.2s ease;
+}
+
+.mr-card:hover, .mr-pricing-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--paper-ln-strong);
+  box-shadow: 0 16px 36px rgba(22, 22, 24, 0.08);
+}
+
+/* Ambient Crosshair Rotation on Figure Hover */
+@keyframes mrCrossPulse {
+  0%, 100% { opacity: 0.6; transform: rotate(0deg); }
+  50% { opacity: 1; transform: rotate(90deg); }
+}
+
+.mr-fig:hover .mr-cross {
+  animation: mrCrossPulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mr-reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .mr-marquee-reverse {
+    animation: none !important;
+  }
+}

@@ -260,6 +260,34 @@ require_once __DIR__ . '/includes/landing_data.php';
     </section>
 
     <!-- ======================================================================
+         ARCHITECTURAL REVERSE TICKER MARQUEE
+         ====================================================================== -->
+    <div class="mr-marquee-strip mr-marquee-reverse-strip" aria-hidden="true">
+      <div class="mr-marquee mr-marquee-reverse mr-mono">
+        <span class="mr-marquee-item">48KHZ LOSSLESS AUDIO ENGINE</span>
+        <span class="mr-marquee-sep">✦</span>
+        <span class="mr-marquee-item">14MS SERVER-SENT EVENTS</span>
+        <span class="mr-marquee-sep">✦</span>
+        <span class="mr-marquee-item">ZERO NEON GLOW</span>
+        <span class="mr-marquee-sep">✦</span>
+        <span class="mr-marquee-item">DETERMINISTIC LATENCY</span>
+        <span class="mr-marquee-sep">✦</span>
+        <span class="mr-marquee-item">SWISS EDITORIAL GRID</span>
+        <span class="mr-marquee-sep">✦</span>
+        <span class="mr-marquee-item">48KHZ LOSSLESS AUDIO ENGINE</span>
+        <span class="mr-marquee-sep">✦</span>
+        <span class="mr-marquee-item">14MS SERVER-SENT EVENTS</span>
+        <span class="mr-marquee-sep">✦</span>
+        <span class="mr-marquee-item">ZERO NEON GLOW</span>
+        <span class="mr-marquee-sep">✦</span>
+        <span class="mr-marquee-item">DETERMINISTIC LATENCY</span>
+        <span class="mr-marquee-sep">✦</span>
+        <span class="mr-marquee-item">SWISS EDITORIAL GRID</span>
+        <span class="mr-marquee-sep">✦</span>
+      </div>
+    </div>
+
+    <!-- ======================================================================
          SECTION 02: INTERACTIVE STUDIO PLAYGROUND
          ====================================================================== -->
     <section class="mr-section" id="interactive-demo" aria-labelledby="demo-title">

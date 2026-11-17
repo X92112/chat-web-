@@ -62,6 +62,7 @@ flush();
 cleanup_old_events();
 
 $start_time = time();
+$last_ping = time();
 $loop_duration = 24; // loop ~24-25 seconds then exit for clean reconnection
 
 while ((time() - $start_time) < $loop_duration) {
@@ -99,10 +100,13 @@ while ((time() - $start_time) < $loop_duration) {
             $last_event_id = max($last_event_id, $event_id);
         }
     } else {
-        // Keepalive comment ping if idle
-        echo ": keepalive\n\n";
-        flush();
-        usleep(150000); // 150ms polling interval for ultra-fast real-time responsiveness
+        // Send keepalive ping only every 12 seconds to prevent buffer and connection bloat
+        if ((time() - $last_ping) >= 12) {
+            echo ": keepalive\n\n";
+            flush();
+            $last_ping = time();
+        }
+        usleep(250000); // 250ms polling for low DB load with instant responsiveness
     }
 }
 

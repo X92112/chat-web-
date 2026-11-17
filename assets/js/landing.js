@@ -261,6 +261,34 @@
     });
   }
 
+  /* ==========================================================================
+     8. ARCHITECTURAL SCROLL REVEAL OBSERVER
+     ========================================================================== */
+  function initScrollReveals() {
+    if (!('IntersectionObserver' in window)) return;
+
+    const targets = document.querySelectorAll('.mr-card, .mr-metric, .mr-pricing-card, .mr-faq-item, .mr-fig');
+    targets.forEach(function(el) {
+      el.classList.add('mr-reveal-init');
+    });
+
+    const observer = new IntersectionObserver(function(entries, obs) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('mr-revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.08
+    });
+
+    targets.forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
   // Initialize all modules when DOM is ready
   document.addEventListener('DOMContentLoaded', function () {
     initProgressBar();
@@ -270,5 +298,6 @@
     initPricingToggle();
     initFaq();
     initNewsletter();
+    initScrollReveals();
   });
 })();

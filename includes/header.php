@@ -22,10 +22,15 @@ $unread_dm_count = $current_user ? get_unread_dm_count($current_user['id']) : 0;
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#1C1B18">
   
+  <!-- Preload Local WOFF2 Fonts for instant 0ms first paint -->
+  <link rel="preload" href="<?= BASE_URL ?>/assets/fonts/Anton-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="<?= BASE_URL ?>/assets/fonts/JetBrainsMono-Var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="<?= BASE_URL ?>/assets/fonts/Switzer-Medium.woff2" as="font" type="font/woff2" crossorigin>
+
   <!-- Typography: Space Grotesk (Brand, Headings) + Inter (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Khmer:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   
   <!-- Stylesheet (Auto Cache-Busting) -->
   <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css?v=<?= @filemtime(__DIR__ . '/../assets/css/style.css') ?: time() ?>">

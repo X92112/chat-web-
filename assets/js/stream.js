@@ -306,12 +306,28 @@
           const href = isMe
             ? `${window.SNAPWALL_BASE}/profile.php?u=${encodeURIComponent(u.username)}`
             : `${window.SNAPWALL_BASE}/chat.php?u=${encodeURIComponent(u.username)}`;
+          const displayName = u.display_name || u.username;
+          const statusMood = u.status_mood || (String(u.username).toLowerCase() === 'rt' ? 'Building Nexly' : 'Online');
+          const initial = String(u.username || '?').substring(0, 2).toUpperCase();
+          const avatarHtml = u.avatar
+            ? `<img src="${window.SNAPWALL_BASE}/uploads/${escapeHtml(u.avatar)}" alt="${escapeHtml(u.username)}" class="avatar" style="width:32px;height:32px;border-radius:50%;object-fit:cover;">`
+            : `<div class="avatar avatar-fallback avatar-tint-1" style="width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;font-family:var(--font-brand);">${escapeHtml(initial)}</div>`;
+          const verifiedHtml = u.is_verified
+            ? `<span class="ink-verified-badge" title="Verified" style="display:inline-flex;align-items:center;margin-left:3px;"><svg viewBox="0 0 24 24" width="13" height="13" fill="var(--ink)"><circle cx="12" cy="12" r="10"/><path d="M8.5 12.5l2.5 2.5 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`
+            : '';
+
           return `
-            <a href="${href}" class="online-user-item" title="${isMe ? 'Your profile' : 'Chat with @' + escapeHtml(u.username)}">
-              <span class="live-dot"></span>
-              <span>${escapeHtml(u.username)}</span>
-              ${u.is_verified ? '<span class="verified-badge"><svg viewBox="0 0 24 24" width="14" height="14" style="vertical-align:-1.5px;display:inline-block;margin-left:3px;"><circle cx="12" cy="12" r="11" fill="#1D9BF0"/><path d="M9.5 16.2l-3.7-3.7 1.4-1.4 2.3 2.3 6.9-6.9 1.4 1.4-8.3 8.3z" fill="#FFFFFF"/></svg></span>' : ''}
-              ${u.status_mood ? `<span class="online-mood-inline">— ${escapeHtml(u.status_mood)}</span>` : ''}
+            <a href="${href}" class="right-panel-online-row" title="${isMe ? 'Your profile' : 'Chat with @' + escapeHtml(u.username)}">
+              <div class="right-panel-online-avatar-slot">
+                ${avatarHtml}
+                <span class="online-status-dot-avatar" aria-hidden="true"></span>
+              </div>
+              <div class="right-panel-online-meta">
+                <span class="right-panel-user-name">
+                  ${escapeHtml(displayName)}${verifiedHtml}
+                </span>
+                <span class="right-panel-user-status">${escapeHtml(statusMood)}</span>
+              </div>
             </a>
           `;
         }).join('');

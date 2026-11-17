@@ -33,10 +33,13 @@ $directory_members = $dir_stmt->fetchAll();
             $u_status = (!empty($u['status_mood'])) ? $u['status_mood'] : ((strcasecmp($u['username'], 'rt') === 0) ? 'Building Nexly' : 'Online');
           ?>
           <a href="<?= $chat_href ?>" class="right-panel-online-row" title="Chat with @<?= e($u['username']) ?>">
-            <span class="online-status-dot" aria-hidden="true"></span>
+            <div class="right-panel-online-avatar-slot">
+              <?= render_avatar($u['username'], 32, '', $u['avatar'] ?? null) ?>
+              <span class="online-status-dot-avatar" aria-hidden="true"></span>
+            </div>
             <div class="right-panel-online-meta">
               <span class="right-panel-user-name">
-                <?= e($u['username']) ?><?= verified_badge($u['is_verified'] ?? 0) ?>
+                <?= e($u['display_name'] ?: $u['username']) ?><?= verified_badge($u['is_verified'] ?? 0) ?>
               </span>
               <span class="right-panel-user-status"><?= e($u_status) ?></span>
             </div>

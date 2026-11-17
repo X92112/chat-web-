@@ -661,13 +661,18 @@ function render_chat_media(array $msg): string {
         $audio_src = BASE_URL . '/uploads/' . e($media_url);
         $dur_str = $media_duration > 0 ? gmdate($media_duration >= 3600 ? "H:i:s" : "i:s", $media_duration) : '0:00';
         $html .= '<div class="chat-voice-player" onclick="handleVoicePlayerClick(event, this)">';
-        $html .= '<button type="button" class="voice-play-btn" title="Play voice note">';
+        $html .= '<button type="button" class="voice-play-btn" title="Play voice note" aria-label="Play voice note">';
         $html .= '<svg class="icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>';
         $html .= '<svg class="icon-pause" style="display:none;" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
         $html .= '</button>';
         $html .= '<div class="voice-track-info">';
+        $html .= '<div class="voice-wave-bars" aria-hidden="true">';
+        for ($w = 0; $w < 18; $w++) {
+            $html .= '<span></span>';
+        }
+        $html .= '</div>';
         $html .= '<div class="voice-progress-track"><div class="voice-progress-fill" style="width:0%;"></div></div>';
-        $html .= '<div class="voice-time-display"><span class="voice-elapsed">0:00</span> / <span class="voice-total">' . e($dur_str) . '</span></div>';
+        $html .= '<div class="voice-time-display"><span class="voice-elapsed">0:00</span> / <span class="voice-total">' . e($dur_str) . '</span> <span class="voice-codec-tag">48kHz</span></div>';
         $html .= '</div>';
         $html .= '<audio preload="metadata" src="' . $audio_src . '" style="display:none;"></audio>';
         $html .= '</div>';
