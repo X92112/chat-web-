@@ -1,0 +1,15 @@
+# Uploaded user media (voice recordings, photo attachments, avatars)
+uploads/*
+!uploads/.htaccess
+!uploads/.gitkeep
+!uploads/sample_*.jpg
+
+# Temporary & Scratch test files
+scratch/
+*.log
+
+# OS & Editor generated files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

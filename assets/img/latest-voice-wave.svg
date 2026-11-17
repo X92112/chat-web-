@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380" fill="none">
+  <rect width="600" height="380" rx="28" fill="#141314"/>
+  <rect x="12" y="12" width="576" height="356" rx="22" fill="#161618" stroke="#26262b"/>
+  <circle cx="44" cy="44" r="6" fill="#b3fca0"/>
+  <text x="62" y="49" fill="#9a9a9e" font-family="Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">VOICE ENGINE 2.0</text>
+  <rect x="450" y="30" width="110" height="26" rx="13" fill="#20261e"/>
+  <text x="505" y="47" text-anchor="middle" fill="#b3fca0" font-family="Inter, sans-serif" font-size="11" font-weight="700">SHIPPED</text>
+  <rect x="60" y="95" width="480" height="160" rx="24" fill="#1a1a1d" stroke="#2e2e34"/>
+              <circle cx="105" cy="175" r="24" fill="#b3fca0"/>
+              <polygon points="100,165 100,185 116,175" fill="#141314"/>
+              <g transform="translate(55,0)"><rect x="95" y="163" width="11" height="24" rx="5.5" fill="#b3fca0"/><rect x="115" y="154" width="11" height="42" rx="5.5" fill="#3a3a40"/><rect x="135" y="141" width="11" height="68" rx="5.5" fill="#f5f5f3"/><rect x="155" y="129" width="11" height="92" rx="5.5" fill="#b3fca0"/><rect x="175" y="148" width="11" height="54" rx="5.5" fill="#f5f5f3"/><rect x="195" y="135" width="11" height="80" rx="5.5" fill="#3a3a40"/><rect x="215" y="120" width="11" height="110" rx="5.5" fill="#b3fca0"/><rect x="235" y="138" width="11" height="74" rx="5.5" fill="#3a3a40"/><rect x="255" y="155" width="11" height="40" rx="5.5" fill="#f5f5f3"/><rect x="275" y="131" width="11" height="88" rx="5.5" fill="#b3fca0"/><rect x="295" y="116" width="11" height="118" rx="5.5" fill="#f5f5f3"/><rect x="315" y="127" width="11" height="96" rx="5.5" fill="#3a3a40"/><rect x="335" y="145" width="11" height="60" rx="5.5" fill="#b3fca0"/><rect x="355" y="153" width="11" height="44" rx="5.5" fill="#3a3a40"/><rect x="375" y="136" width="11" height="78" rx="5.5" fill="#f5f5f3"/><rect x="395" y="123" width="11" height="104" rx="5.5" fill="#b3fca0"/><rect x="415" y="144" width="11" height="62" rx="5.5" fill="#f5f5f3"/><rect x="435" y="157" width="11" height="36" rx="5.5" fill="#3a3a40"/><rect x="455" y="149" width="11" height="52" rx="5.5" fill="#b3fca0"/><rect x="475" y="161" width="11" height="28" rx="5.5" fill="#3a3a40"/></g>
+  <text x="44" y="330" fill="#f5f5f3" font-family="Inter, sans-serif" font-size="20" font-weight="700">48kHz Opus Stream</text>
+</svg>

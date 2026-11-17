@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" fill="none">
+  <rect width="800" height="500" rx="32" fill="#141314"/>
+  <rect x="16" y="16" width="768" height="468" rx="24" fill="#18181b" stroke="#2c2c32"/>
+  <rect x="40" y="40" width="200" height="420" rx="18" fill="#141314" stroke="#25252b"/>
+  <circle cx="72" cy="74" r="14" fill="#b3fca0"/>
+  <rect x="98" y="66" width="90" height="16" rx="8" fill="#f5f5f3"/>
+  <rect x="58" y="116" width="164" height="44" rx="12" fill="#20281e" stroke="#b3fca0" stroke-opacity="0.4"/>
+  <rect x="74" y="132" width="100" height="12" rx="6" fill="#b3fca0"/>
+  <rect x="58" y="174" width="164" height="40" rx="12" fill="#1b1b1f"/>
+  <rect x="74" y="188" width="110" height="12" rx="6" fill="#7c7c85"/>
+  <rect x="58" y="226" width="164" height="40" rx="12" fill="#1b1b1f"/>
+  <rect x="74" y="240" width="86" height="12" rx="6" fill="#7c7c85"/>
+  <rect x="264" y="40" width="496" height="420" rx="18" fill="#141314" stroke="#25252b"/>
+  <rect x="292" y="64" width="150" height="28" rx="14" fill="#20281e"/>
+  <text x="367" y="83" text-anchor="middle" fill="#b3fca0" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="1">05 / MOBILE FIRST</text>
+  <rect x="610" y="64" width="122" height="28" rx="14" fill="#1f1f24"/>
+  <text x="671" y="83" text-anchor="middle" fill="#f5f5f3" font-family="Inter, sans-serif" font-size="11" font-weight="700">120HZ MOTION</text>
+  <text x="292" y="136" fill="#f5f5f3" font-family="Inter, sans-serif" font-size="25" font-weight="700">Fluid Touch Gestures & Native Drawer</text>
+  <rect x="292" y="168" width="330" height="72" rx="20" fill="#1d1d22" stroke="#2e2e36"/>
+  <circle cx="330" cy="204" r="18" fill="#b3fca0"/>
+  <rect x="362" y="190" width="210" height="12" rx="6" fill="#f5f5f3"/>
+  <rect x="362" y="210" width="140" height="10" rx="5" fill="#8c8c96"/>
+  <rect x="380" y="258" width="352" height="82" rx="20" fill="#b3fca0"/>
+  <rect x="408" y="280" width="240" height="14" rx="7" fill="#141314"/>
+  <rect x="408" y="304" width="175" height="12" rx="6" fill="#2a3d24"/>
+  <rect x="292" y="384" width="440" height="52" rx="26" fill="#1b1b20" stroke="#2e2e36"/>
+  <circle cx="704" cy="410" r="18" fill="#b3fca0"/>
+</svg>
