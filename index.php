@@ -3,7 +3,8 @@
  * ============================================================================
  * NEXLY X — MIGUEL RECIO ARCHITECTURAL SWISS LANDING PAGE (index.php)
  * Clean concrete paper #edeef1 · Ink #161618 · Infra red #ff3a3a · Hairline 1px
- * Display typography in "Anton" · Monospace in "JetBrains Mono"
+ * Local woff2 fonts: Anton (Display), JetBrains Mono (Specs), Switzer (Body)
+ * Native, unrestricted, buttery-smooth scrolling
  * ============================================================================
  */
 require_once __DIR__ . '/config.php';
@@ -24,7 +25,12 @@ require_once __DIR__ . '/includes/landing_data.php';
   <meta name="description" content="<?= e($site_config['hero_subheadline']) ?>">
   <title><?= e($site_config['name']) ?> X — Architectural Voice, Snap &amp; Studio Chat</title>
 
-  <!-- Google Fonts: Anton (Display) + JetBrains Mono (Specs) + Inter (Body) + Noto Sans Khmer -->
+  <!-- Preload Local WOFF2 Fonts for instant 0ms first paint -->
+  <link rel="preload" href="<?= BASE_URL ?>/assets/fonts/Anton-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="<?= BASE_URL ?>/assets/fonts/JetBrainsMono-Var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="<?= BASE_URL ?>/assets/fonts/Switzer-Medium.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Fallback Google Fonts for Khmer script and extended latin glyphs -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Khmer:wght@400;500;700&display=swap" rel="stylesheet">
@@ -71,7 +77,7 @@ require_once __DIR__ . '/includes/landing_data.php';
           
           <!-- Hero Left Column (7 cols): Display Typography & CTAs -->
           <div class="mr-hero-left">
-            <div class="mr-tag mr-mono mr-fade">
+            <div class="mr-tag mr-mono">
               <span class="mr-sq"></span>
               <span>REAL-TIME VOICE &amp; STUDIO CHAT · PHNOM PENH</span>
             </div>
@@ -79,14 +85,14 @@ require_once __DIR__ . '/includes/landing_data.php';
             <h1 class="mr-display mr-dh mr-xl mr-hero-title" id="hero-title">
               <span class="mr-ln">FAST TALK.</span>
               <span class="mr-ln">STUDIO SOUND.</span>
-              <span class="mr-ln mr-accent-line">PURE <span class="mr-hcyc" data-words='["SPEED.","CLARITY.","CONNECTION.","PRECISION."]'>SPEED.</span></span>
+              <span class="mr-ln mr-accent-line">PURE <span class="mr-hcyc" aria-label="Speed, Clarity, Precision"><span class="mr-win"><span class="mr-trk"><span>SPEED.</span><span>CLARITY.</span><span>PRECISION.</span><span>SPEED.</span></span></span></span></span>
             </h1>
 
-            <p class="mr-hero-desc mr-fade">
+            <p class="mr-hero-desc">
               A calm, editorial real-time chat and voice studio engineered with sub-20ms SSE latency, 48kHz lossless voice notes, and bilingual Khmer + Latin typography. Designed for fast-moving cohorts, creators, and engineers.
             </p>
 
-            <div class="mr-hero-actions mr-fade">
+            <div class="mr-hero-actions">
               <a href="<?= e($site_config['cta_primary_url']) ?>" class="mr-pill mr-pill-primary">
                 <span><?= e($site_config['cta_primary_text']) ?> ↗</span>
               </a>
@@ -96,7 +102,7 @@ require_once __DIR__ . '/includes/landing_data.php';
             </div>
 
             <!-- Architectural Technical Specifications Strip -->
-            <div class="mr-specs-strip mr-mono mr-fade">
+            <div class="mr-specs-strip mr-mono">
               <div class="mr-spec-item">
                 <span class="mr-spec-lbl">STREAM //</span>
                 <span class="mr-spec-val">ACTIVE SSE</span>
@@ -633,12 +639,7 @@ require_once __DIR__ . '/includes/landing_data.php';
   require __DIR__ . '/includes/landing_footer.php';
   ?>
 
-  <!-- GSAP 3 + ScrollTrigger + Lenis CDN for Swiss kinetic motion -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-
-  <!-- Architectural Swiss Motion & Customizer Script -->
+  <!-- Architectural Swiss Motion & Customizer Script (Native, zero scroll-lock dependencies) -->
   <script src="<?= BASE_URL ?>/assets/js/landing.js?v=<?= @filemtime(__DIR__ . '/assets/js/landing.js') ?: time() ?>" defer></script>
 </body>
 </html>

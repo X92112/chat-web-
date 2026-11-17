@@ -1,14 +1,12 @@
 /**
  * ============================================================================
  * NEXLY X — MIGUEL RECIO ARCHITECTURAL SWISS MOTION & INTERACTION ENGINE
- * Kinetic headline word cycling, interactive playground, Lenis smooth scroll,
- * and precision parameter matrix controls.
+ * Native, unrestricted, buttery-smooth scrolling (Zero scroll hijacking)
+ * Pure CSS kinetic typography, interactive parameter matrix, pricing toggle
  * ============================================================================
  */
 (function () {
   'use strict';
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ==========================================================================
      1. SCROLL READING PROGRESS INDICATOR
@@ -30,29 +28,26 @@
   }
 
   /* ==========================================================================
-     2. KINETIC CYCLING WORD ANIMATION (MIGUEL RECIO HEADLINE EFFECT)
+     2. SMOOTH ANCHOR LINK SCROLLING WITH NAVBAR OFFSET
      ========================================================================== */
-  function initHeadlineWordCycle() {
-    const cycEl = document.querySelector('.mr-hcyc');
-    if (!cycEl) return;
+  function initSmoothAnchorLinks() {
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        const href = anchor.getAttribute('href');
+        if (!href || href === '#') return;
 
-    let words = ['SPEED.', 'CLARITY.', 'CONNECTION.', 'PRECISION.'];
-    try {
-      const parsed = JSON.parse(cycEl.getAttribute('data-words'));
-      if (Array.isArray(parsed) && parsed.length > 0) words = parsed;
-    } catch (e) {}
-
-    let currentIdx = 0;
-    if (prefersReducedMotion) return;
-
-    setInterval(function () {
-      cycEl.classList.add('is-switching');
-      setTimeout(function () {
-        currentIdx = (currentIdx + 1) % words.length;
-        cycEl.textContent = words[currentIdx];
-        cycEl.classList.remove('is-switching');
-      }, 250);
-    }, 2400);
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const navHeight = 70;
+          const targetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo({
+            top: targetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
   }
 
   /* ==========================================================================
@@ -122,7 +117,7 @@
       if (blurVal) blurVal.textContent = b;
       if (speedVal) speedVal.textContent = s + 'x';
 
-      if (previewCard && !prefersReducedMotion) {
+      if (previewCard) {
         previewCard.style.transform = 'scale(1.01)';
         setTimeout(function () {
           previewCard.style.transform = '';
@@ -184,20 +179,27 @@
         const start = parseInt(valEl.textContent, 10) || 0;
         const end = parseInt(target, 10) || 0;
 
-        if (prefersReducedMotion || typeof window.gsap === 'undefined' || start === end) {
+        if (start === end) {
           valEl.textContent = target;
           return;
         }
 
-        const counter = { num: start };
-        window.gsap.to(counter, {
-          num: end,
-          duration: 0.45,
-          ease: 'power3.out',
-          onUpdate: function () {
-            valEl.textContent = Math.round(counter.num);
-          },
-        });
+        // Lightweight smooth rolling number animation (pure vanilla, zero deps)
+        const startTime = performance.now();
+        const duration = 400; // ms
+
+        function step(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(1, elapsed / duration);
+          const current = Math.round(start + (end - start) * progress);
+          valEl.textContent = current;
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            valEl.textContent = target;
+          }
+        }
+        requestAnimationFrame(step);
       });
     }
 
@@ -259,36 +261,14 @@
     });
   }
 
-  /* ==========================================================================
-     8. SMOOTH SCROLL (LENIS FALLBACK)
-     ========================================================================== */
-  function initLenis() {
-    if (prefersReducedMotion || typeof window.Lenis === 'undefined') return;
-
-    const lenis = new window.Lenis({
-      duration: 1.1,
-      easing: function (t) {
-        return Math.min(1, 1.001 - Math.pow(2, -10 * t));
-      },
-      smoothWheel: true,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  }
-
   // Initialize all modules when DOM is ready
   document.addEventListener('DOMContentLoaded', function () {
     initProgressBar();
-    initHeadlineWordCycle();
+    initSmoothAnchorLinks();
     initMobileDrawer();
     initPlayground();
     initPricingToggle();
     initFaq();
     initNewsletter();
-    initLenis();
   });
 })();
