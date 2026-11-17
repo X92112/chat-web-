@@ -24,6 +24,9 @@
   </div>
 </div>
 
+<!-- Dynamic Scroll Progress Indicator (Native Scroll-Driven + JS Fallback) -->
+<div class="an-scroll-progress" id="scroll-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
 <!-- ==========================================================================
      2. STICKY MINIMAL NAVBAR (Logo left · Links center · Login + Mint CTA right)
      ========================================================================== -->

@@ -84,7 +84,54 @@ $hero_words = explode(' ', $site_config['hero_headline']);
          3. HERO SECTION (Big Headline · 1-Line Sub · 2 Buttons · Logos Row)
          ====================================================================== -->
     <section class="an-hero" aria-labelledby="hero-title">
-      <div class="an-container">
+      <!-- Dynamic Ambient Glowing Mesh Orbs (Transforms & Continuous Rotation) -->
+      <div class="an-hero-ambient" aria-hidden="true">
+        <div class="an-hero-orb an-hero-orb-1"></div>
+        <div class="an-hero-orb an-hero-orb-2"></div>
+        <div class="an-hero-orb an-hero-orb-3"></div>
+      </div>
+
+      <div class="an-container" style="position:relative; z-index:2;">
+        <!-- 3D Floating Interactive Widgets (Levitation Animation + Parallax Depth) -->
+        <div class="an-hero-floating-wrap" aria-hidden="true">
+          <!-- Floating Left Badge: Live Voice Room -->
+          <div class="an-hero-float-badge an-float-left an-tilt-widget">
+            <div class="an-float-avatar-row">
+              <span class="an-mini-avatar" style="background:#b3fca0; color:#141314;">RT</span>
+              <span class="an-mini-avatar" style="background:#a5f3fc; color:#141314;">SL</span>
+              <span class="an-mini-avatar" style="background:#f5d0fe; color:#141314;">DA</span>
+              <span class="an-live-pulse-badge"></span>
+            </div>
+            <div class="an-float-info">
+              <span class="an-float-title">Lobby Room #1</span>
+              <span class="an-float-sub">12 voices live now</span>
+            </div>
+            <div class="an-mini-equalizer">
+              <span class="an-eq-bar"></span>
+              <span class="an-eq-bar"></span>
+              <span class="an-eq-bar"></span>
+              <span class="an-eq-bar"></span>
+            </div>
+          </div>
+
+          <!-- Floating Right Badge: 48kHz HD Audio -->
+          <div class="an-hero-float-badge an-float-right an-tilt-widget">
+            <div class="an-float-icon-box">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" y1="19" x2="12" y2="23"/>
+                <line x1="8" y1="23" x2="16" y2="23"/>
+              </svg>
+            </div>
+            <div class="an-float-info">
+              <span class="an-float-title">48kHz HD Audio</span>
+              <span class="an-float-sub">Lossless Voice Engine</span>
+            </div>
+            <span class="an-shipped-tag" style="padding:0.2rem 0.55rem; font-size:0.7rem;">14ms SSE</span>
+          </div>
+        </div>
+
         <div class="an-eyebrow an-hero-fade">
           <span class="an-live-dot" aria-hidden="true"></span>
           <span><?= e($site_config['badge']) ?></span>
@@ -134,7 +181,7 @@ $hero_words = explode(' ', $site_config['hero_headline']);
     <!-- ======================================================================
          4. INTERACTIVE DEMO SECTION (Live Preview Card + Customize Controls)
          ====================================================================== -->
-    <section class="an-section" id="interactive-demo" aria-labelledby="demo-heading">
+    <section class="an-section an-scroll-reveal" id="interactive-demo" aria-labelledby="demo-heading">
       <div class="an-container">
         <div class="an-section-header">
           <span class="an-eyebrow">LIVE PLAYGROUND</span>
@@ -259,7 +306,7 @@ $hero_words = explode(' ', $site_config['hero_headline']);
     <!-- ======================================================================
          5. BENEFITS GRID (6 Short Cards · Bold Title + One Sentence)
          ====================================================================== -->
-    <section class="an-section" id="benefits" aria-labelledby="benefits-heading">
+    <section class="an-section an-scroll-reveal" id="benefits" aria-labelledby="benefits-heading">
       <div class="an-container">
         <div class="an-section-header">
           <span class="an-eyebrow">WHY NEXLY</span>
@@ -282,7 +329,7 @@ $hero_words = explode(' ', $site_config['hero_headline']);
     <!-- ======================================================================
          6. "JUST SHIPPED / LATEST" GALLERY GRID (Zoom + Lift + Cursor Label)
          ====================================================================== -->
-    <section class="an-section" id="latest-shipped" aria-labelledby="shipped-heading">
+    <section class="an-section an-scroll-reveal" id="latest-shipped" aria-labelledby="shipped-heading">
       <div class="an-container">
         <div class="an-section-header">
           <span class="an-eyebrow">JUST SHIPPED · CHANGELOG</span>
@@ -320,7 +367,7 @@ $hero_words = explode(' ', $site_config['hero_headline']);
     <!-- ======================================================================
          7. SHOWCASE HORIZONTAL AUTO-SCROLL MARQUEE (Pauses on Hover)
          ====================================================================== -->
-    <section class="an-section" id="showcase" aria-labelledby="showcase-heading">
+    <section class="an-section an-scroll-reveal" id="showcase" aria-labelledby="showcase-heading">
       <div class="an-container">
         <div class="an-section-header">
           <span class="an-eyebrow">INTERFACE SHOWCASE</span>
@@ -357,7 +404,7 @@ $hero_words = explode(' ', $site_config['hero_headline']);
     <!-- ======================================================================
          8. TESTIMONIALS (3 Quote Cards with Avatar, Name, and Role)
          ====================================================================== -->
-    <section class="an-section" id="testimonials" aria-labelledby="testimonials-heading">
+    <section class="an-section an-scroll-reveal" id="testimonials" aria-labelledby="testimonials-heading">
       <div class="an-container">
         <div class="an-section-header">
           <span class="an-eyebrow">WALL OF LOVE</span>
@@ -393,7 +440,7 @@ $hero_words = explode(' ', $site_config['hero_headline']);
     <!-- ======================================================================
          9. PRICING SECTION (Monthly/Yearly Toggle · 3 Cards · Rolling Numbers)
          ====================================================================== -->
-    <section class="an-section" id="pricing" aria-labelledby="pricing-heading">
+    <section class="an-section an-scroll-reveal" id="pricing" aria-labelledby="pricing-heading">
       <div class="an-container">
         <div class="an-section-header">
           <span class="an-eyebrow">SIMPLE PRICING</span>
@@ -469,7 +516,7 @@ $hero_words = explode(' ', $site_config['hero_headline']);
     <!-- ======================================================================
          10. FAQ ACCORDION (Adjacent <details> + Smooth Height Animation)
          ====================================================================== -->
-    <section class="an-section" id="faq" aria-labelledby="faq-heading">
+    <section class="an-section an-scroll-reveal" id="faq" aria-labelledby="faq-heading">
       <div class="an-container">
         <div class="an-section-header">
           <span class="an-eyebrow">DOCUMENTATION &amp; FAQ</span>
@@ -498,7 +545,7 @@ $hero_words = explode(' ', $site_config['hero_headline']);
     <!-- ======================================================================
          11. FINAL BIG CTA SECTION (Repeating Headline & Primary/Secondary CTAs)
          ====================================================================== -->
-    <section class="an-section" aria-labelledby="final-cta-heading">
+    <section class="an-section an-scroll-reveal" aria-labelledby="final-cta-heading">
       <div class="an-container">
         <div class="an-final-cta-card an-stagger-group">
           <span class="an-eyebrow" style="background:var(--near-black); color:var(--mint); border-color:var(--near-black);">
